@@ -1,0 +1,44 @@
+public class Main {
+    public static void main(String[] args) {
+        try {
+              int d = Throw.divide(8, 0);          
+              System.out.println(d);
+              double ar = area(9);
+            System.out.println(ar);
+
+        } catch (Exception e) {
+            System.out.println("Its an exception");
+
+        }
+
+    }
+
+    public static double area(int r)throws Throw.negativeradiusException
+    {
+        if(r<0)
+        {
+            throw new negativeradiusException();
+        }
+        double result = Math.PI * r *r;
+        return result;
+    }
+
+}
+
+public class Main {
+    public   static void main(String[] args) {
+        try {
+            double ar = area(-3);
+            System.out.println(ar);
+        } catch (negativeradiusException e) {
+            System.out.println("It's an exception: " + e);
+        }
+    }
+
+    public static double area(int r) throws negativeradiusException {
+        if (r < 0) {
+            throw new negativeradiusException();
+        }
+        return Math.PI * r * r;
+    }
+}
